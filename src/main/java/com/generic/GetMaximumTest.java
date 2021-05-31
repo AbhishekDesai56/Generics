@@ -1,15 +1,27 @@
 package com.generic;
 
-public class GetMaximumTest {
 
-    public static <E extends Comparable<? super E>> E testGenericMaximum(E x, E y, E z) {
-        E max = x;
+public class GetMaximumTest <E extends Comparable<E>> {
+    public E x;
+    public E y;
+    public E z;
+    public E max;
+
+    public GetMaximumTest(E x, E y, E z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+        testGenericMaximum();
+    }
+
+    public <E> E testGenericMaximum() {
+        max = x;
         if (y.compareTo(max) > 0) {
             max = y;
         }
         if (z.compareTo(max) > 0) {
             max = z;
         }
-        return max;
+        return (E) max;
     }
 }
